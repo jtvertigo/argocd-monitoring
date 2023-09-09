@@ -2580,7 +2580,7 @@ prometheus:
 
     ## Service type
     ##
-    type: ClusterIP
+    type: LoadBalancer
 
     ## Additional port to define in the Service
     additionalPorts: []
@@ -3217,7 +3217,7 @@ prometheus:
     ##
     volumeClaimTemplate:
       spec:
-        storageClassName: local-path
+        storageClassName: "local-path"
         accessModes: ["ReadWriteOnce"]
         resources:
           requests:
