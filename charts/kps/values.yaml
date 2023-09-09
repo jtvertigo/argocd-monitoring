@@ -3212,17 +3212,17 @@ prometheus:
     ## Prometheus StorageSpec for persistent data
     ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/user-guides/storage.md
     ##
-    storageSpec:
     # storageSpec: {}
     ## Using PersistentVolumeClaim
     ##
+    storageSpec:
       volumeClaimTemplate:
         spec:
-          storageClassName: "local-path"
+          storageClassName: local-path
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
-              storage: "30Gi"
+              storage: 20Gi
         selector: {}
 
     ## Using tmpfs volume
