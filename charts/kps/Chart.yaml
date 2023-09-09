@@ -1,9 +1,28 @@
 apiVersion: v2
-name: kps
+# name: kps
 description: Install kube-prometheus stack to generate and expose cluster-level metrics
 type: application
 version: 50.3.1
 appVersion: v0.67.1
+
+name: kube-prometheus-stack
+sources:
+  - https://github.com/prometheus-community/helm-charts
+  - https://github.com/prometheus-operator/kube-prometheus
+home: https://github.com/prometheus-operator/kube-prometheus
+keywords:
+  - operator
+  - prometheus
+  - kube-prometheus
+annotations:
+  "artifacthub.io/license": Apache-2.0
+  "artifacthub.io/operator": "true"
+  "artifacthub.io/links": |
+    - name: Chart Source
+      url: https://github.com/prometheus-community/helm-charts
+    - name: Upstream Project
+      url: https://github.com/prometheus-operator/kube-prometheus
+
 dependencies:
   - name: prometheus-operator-crds
     version: "5.1.0"
