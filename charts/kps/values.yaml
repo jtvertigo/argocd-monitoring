@@ -872,9 +872,9 @@ grafana:
   ## Timezone for the default dashboards
   ## Other options are: browser or a specific timezone, i.e. Europe/Luxembourg
   ##
-  defaultDashboardsTimezone: utc
+  defaultDashboardsTimezone: browser
 
-  adminPassword: prom-operator
+  adminPassword: password
 
   rbac:
     ## If true, Grafana PSPs will be created
@@ -1010,6 +1010,8 @@ grafana:
   ##
   service:
     portName: http-web
+    type: LoadBalancer
+    port: 3000
 
   serviceMonitor:
     # If true, a ServiceMonitor CRD is created for a prometheus operator
@@ -2578,7 +2580,7 @@ prometheus:
 
     ## Service type
     ##
-    type: ClusterIP
+    type: LoadBalancer
 
     ## Additional port to define in the Service
     additionalPorts: []
@@ -3213,14 +3215,14 @@ prometheus:
     storageSpec: {}
     ## Using PersistentVolumeClaim
     ##
-    #  volumeClaimTemplate:
-    #    spec:
-    #      storageClassName: gluster
-    #      accessModes: ["ReadWriteOnce"]
-    #      resources:
-    #        requests:
-    #          storage: 50Gi
-    #    selector: {}
+    volumeClaimTemplate:
+      spec:
+        storageClassName: local-path
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 50Gi
+      selector: {}
 
     ## Using tmpfs volume
     ##
