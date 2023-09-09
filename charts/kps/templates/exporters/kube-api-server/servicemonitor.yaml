@@ -38,7 +38,6 @@ spec:
   namespaceSelector:
     matchNames:
     - default
-    - "monitoring"
   selector:
 {{ toYaml .Values.kubeApiServer.serviceMonitor.selector | indent 4 }}
 {{- end}}
