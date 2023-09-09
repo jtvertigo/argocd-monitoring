@@ -2580,7 +2580,7 @@ prometheus:
 
     ## Service type
     ##
-    type: LoadBalancer
+    type: ClusterIP
 
     ## Additional port to define in the Service
     additionalPorts: []
