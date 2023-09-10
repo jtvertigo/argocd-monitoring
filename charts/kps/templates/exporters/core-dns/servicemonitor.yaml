@@ -11,8 +11,7 @@ metadata:
   {{- end }}
 {{ include "kube-prometheus-stack.labels" . | indent 4 }}
 spec:
-  # jobLabel: jobLabel
-  jobLabel: coredns
+  jobLabel: jobLabel
   {{- include "servicemonitor.scrapeLimits" .Values.coreDns.serviceMonitor | nindent 2 }}
   selector:
     matchLabels:
