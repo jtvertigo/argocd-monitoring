@@ -19,7 +19,7 @@ spec:
       release: {{ $.Release.Name | quote }}
   namespaceSelector:
     matchNames:
-      - "monitoring"
+      - "kube-system"
   endpoints:
   - port: http-metrics
     {{- if .Values.coreDns.serviceMonitor.interval}}
