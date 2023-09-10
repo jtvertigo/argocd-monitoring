@@ -1338,8 +1338,7 @@ kubeControllerManager:
   ## If using kubeControllerManager.endpoints only the port and targetPort are used
   ##
   service:
-    # enabled: true
-    enabled: false
+    enabled: true
     ## If null or unset, the value is determined dynamically based on target Kubernetes version due to change
     ## of default port in Kubernetes 1.22.
     ##
@@ -1349,8 +1348,7 @@ kubeControllerManager:
     #   component: kube-controller-manager
 
   serviceMonitor:
-    # enabled: true
-    enabled: false
+    enabled: true
     ## Scrape interval. If not set, the Prometheus default scrape interval is used.
     ##
     interval: ""
@@ -1422,8 +1420,8 @@ coreDns:
   service:
     port: 9153
     targetPort: 9153
-    # selector:
-    #   k8s-app: kube-dns
+    selector:
+      k8s-app: kube-dns
   serviceMonitor:
     ## Scrape interval. If not set, the Prometheus default scrape interval is used.
     ##
