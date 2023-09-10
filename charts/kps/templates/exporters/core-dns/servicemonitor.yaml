@@ -22,7 +22,8 @@ spec:
       - "monitoring"
       - "kube-system"
   endpoints:
-  - port: http-metrics
+  # - port: http-metrics
+  - port: 9153
     {{- if .Values.coreDns.serviceMonitor.interval}}
     interval: {{ .Values.coreDns.serviceMonitor.interval }}
     {{- end }}
