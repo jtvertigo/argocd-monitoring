@@ -20,6 +20,7 @@ spec:
   namespaceSelector:
     matchNames:
       - "monitoring"
+      - "kube-system"
   endpoints:
   - port: http-metrics
     {{- if .Values.coreDns.serviceMonitor.interval}}
