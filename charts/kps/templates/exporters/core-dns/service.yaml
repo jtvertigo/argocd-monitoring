@@ -9,7 +9,7 @@ metadata:
 {{ include "kube-prometheus-stack.labels" . | indent 4 }}
   namespace: monitoring
 spec:
-  clusterIP: None
+  # clusterIP: None
   ports:
     - name: http-metrics
       port: {{ .Values.coreDns.service.port }}
