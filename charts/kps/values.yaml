@@ -1008,6 +1008,17 @@ grafana:
 
   ## Passed to grafana subchart and used by servicemonitor below
   ##
+
+  persistence:
+    enabled: true
+    type: pvc
+    storageClassName: local-path
+    accessModes:
+      - ReadWriteOnce
+    size: 4Gi
+    finalizers:
+      - kubernetes.io/pvc-protection
+
   service:
     portName: http-web
     type: LoadBalancer
