@@ -16,17 +16,51 @@ spec:
   endpoints:
   - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
     interval: 15s
-    metricRelabelings:
-    - action: drop
-      regex: coredns_cache_misses_total
-      sourceLabels:
-      - __name__
     port: metrics
+    relabelings:
+      # - sourceLabels:
+      #     - __meta_kubernetes_endpoints_label_k8s_app
+      #   regex: "kube-dns"
+      #   action: keep
+      # - action: replace
+      #   replacement: namespace
+      #   targetLabel: __meta_kubernetes_namespace
+      # - sourceLabels:
+      #     - __meta_kubernetes_service_name
+      #   regex: "coredns"
+      #   action: keep
+      - sourceLabels: 
+          - __meta_kubernetes_service_name
+        regex: "coredns"
+        targetLabel: service
+        action: replace
+      # - sourceLabels:
+      #     - __meta_kubernetes_pod_container_name
+      #   regex: "coredns"
+      #   action: keep
+      # - sourceLabels:
+      #     - __address__
+      #   regex: "10.233.*"
+      #   action: keep
+      # - sourceLabels:
+      #     - __meta_kubernetes_service_name
+      #   regex: "kps-kubelet"
+      #   action: drop
+      # - sourceLabels:
+      #     - __meta_kubernetes_endpoint_port_name
+      #   regex: "https-metrics"
+      #   action: drop
+      # - sourceLabels:
+      #     - __meta_kubernetes_namespace
+      #   regex: "kube-system"
+      #   action: keep
   jobLabel: app.kubernetes.io/name
   namespaceSelector:
+    # any: true
     matchNames:
     - kube-system
+    # - monitoring
   selector:
     matchLabels:
-      k8s-app: kube-dns
+      # k8s-app: kube-dns
       release: kps

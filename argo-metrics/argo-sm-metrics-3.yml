@@ -9,5 +9,7 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: argocd-notifications-controller-metrics
+  namespaceSelector:
+    any: true
   endpoints:
   - port: metrics
