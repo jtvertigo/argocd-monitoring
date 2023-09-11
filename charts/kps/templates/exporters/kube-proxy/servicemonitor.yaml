@@ -18,8 +18,9 @@ spec:
       app: {{ template "kube-prometheus-stack.name" . }}-kube-proxy
       release: {{ $.Release.Name | quote }}
   namespaceSelector:
-    matchNames:
-      - "monitoring"
+    any: true
+    # matchNames:
+    #   - "monitoring"
   endpoints:
   - port: http-metrics
     {{- if .Values.kubeProxy.serviceMonitor.interval }}

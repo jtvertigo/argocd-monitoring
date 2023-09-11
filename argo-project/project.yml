@@ -15,5 +15,5 @@ spec:
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
-  sourceNamespaces:
-    - kube-system
+  # sourceNamespaces:
+  #   - kube-system
