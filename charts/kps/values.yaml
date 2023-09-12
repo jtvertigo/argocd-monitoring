@@ -3314,6 +3314,19 @@ prometheus:
         static_configs:
           - targets:
             - 192.168.88.248:9100
+      - job_name: "etcd"
+        scrape_interval: 15s
+        scrape_timeout: 10s
+        metrics_path: /metrics
+        scheme: https
+        static_configs:
+          - targets:
+            - 192.168.88.248:2379
+        tls_config:
+          ca_file: /etc/ssl/etcd/ssl/ca.pem
+          cert_file: /etc/ssl/etcd/ssl/node-node1.pem
+          key_file: /etc/ssl/etcd/ssl/node-node1-key.pem
+          insecure_skip_verify: false
 
     ## If additional scrape configurations are already deployed in a single secret file you can use this section.
     ## Expected values are the secret name and key
