@@ -18,10 +18,10 @@ spec:
       app: {{ template "kube-prometheus-stack.name" . }}-coredns
       release: {{ $.Release.Name | quote }}
   namespaceSelector:
-    any: true
-    # matchNames:
+    # any: true
+    matchNames:
+      - "kube-system"
     #   - "monitoring"
-    #   - "kube-system"
   endpoints:
   - port: http-metrics
   # - port: http-metrics-core-dns
