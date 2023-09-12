@@ -15,7 +15,8 @@ spec:
     targetRevision: master
     helm:
       valueFiles:
-        - values.yaml_
+        - values_original.yaml
+        # - values.yaml
   project: monitoring
   syncPolicy:
     automated:
