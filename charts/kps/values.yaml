@@ -1711,10 +1711,12 @@ kubeScheduler:
     ## Requires proper certs (not self-signed) and delegated authentication/authorization checks.
     ## If null or unset, the value is determined dynamically based on target Kubernetes version.
     ##
-    https: null
+    # https: null
+    https: true
 
     ## Skip TLS certificate validation when scraping
-    insecureSkipVerify: null
+    # insecureSkipVerify: null
+    insecureSkipVerify: true
 
     ## Name of the server to use when validating TLS certificate
     serverName: null
