@@ -1330,7 +1330,7 @@ kubeControllerManager:
 
   ## If your kube controller manager is not deployed as a pod, specify IPs it can be found on
   ##
-  endpoints: []
+  endpoints: ['192.168.88.247']
   # - 10.141.4.22
   # - 10.141.4.23
   # - 10.141.4.24
@@ -1661,7 +1661,7 @@ kubeScheduler:
 
   ## If your kube scheduler is not deployed as a pod, specify IPs it can be found on
   ##
-  endpoints: []
+  endpoints: ['192.168.88.247']
   # - 10.141.4.22
   # - 10.141.4.23
   # - 10.141.4.24
@@ -1754,7 +1754,7 @@ kubeProxy:
 
   ## If your kube proxy is not deployed as a pod, specify IPs it can be found on
   ##
-  endpoints: []
+  endpoints: ['192.168.88.247']
   # - 10.141.4.22
   # - 10.141.4.23
   # - 10.141.4.24
