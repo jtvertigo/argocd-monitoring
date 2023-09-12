@@ -18,9 +18,9 @@ spec:
       app: {{ template "kube-prometheus-stack.name" . }}-kube-scheduler
       release: {{ $.Release.Name | quote }}
   namespaceSelector:
-    any: true
-    # matchNames:
-    #   - "monitoring"
+    # any: true
+    matchNames:
+      - "monitoring"
   endpoints:
   - port: http-metrics
     {{- if .Values.kubeScheduler.serviceMonitor.interval }}
