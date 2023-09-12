@@ -1673,8 +1673,10 @@ kubeScheduler:
     ## If null or unset, the value is determined dynamically based on target Kubernetes version due to change
     ## of default port in Kubernetes 1.23.
     ##
-    port: null
-    targetPort: null
+    # port: null
+    port: 10257
+    # targetPort: null
+    targetPort: 10257
     # selector:
     #   component: kube-scheduler
 
