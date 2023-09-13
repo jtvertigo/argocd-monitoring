@@ -1330,7 +1330,7 @@ kubeControllerManager:
 
   ## If your kube controller manager is not deployed as a pod, specify IPs it can be found on
   ##
-  endpoints: ['192.168.88.247']
+  endpoints: ['192.168.88.246']
   # - 10.141.4.22
   # - 10.141.4.23
   # - 10.141.4.24
@@ -1569,7 +1569,7 @@ kubeEtcd:
 
   ## If your etcd is not deployed as a pod, specify IPs it can be found on
   ##
-  endpoints: ['192.168.88.247']
+  endpoints: ['192.168.88.246']
   # - 10.141.4.22
   # - 10.141.4.23
   # - 10.141.4.24
@@ -1665,7 +1665,7 @@ kubeScheduler:
 
   ## If your kube scheduler is not deployed as a pod, specify IPs it can be found on
   ##
-  endpoints: ['192.168.88.247']
+  endpoints: ['192.168.88.246']
   # - 10.141.4.22
   # - 10.141.4.23
   # - 10.141.4.24
@@ -1758,7 +1758,7 @@ kubeProxy:
 
   ## If your kube proxy is not deployed as a pod, specify IPs it can be found on
   ##
-  endpoints: ['192.168.88.247']
+  endpoints: ['192.168.88.246']
   # - 10.141.4.22
   # - 10.141.4.23
   # - 10.141.4.24
@@ -3325,7 +3325,7 @@ prometheus:
         scrape_timeout: 10s
         static_configs:
           - targets:
-            - 192.168.88.248:9100
+            - 192.168.88.246:9100
 
 ##
       # - job_name: "etcd"

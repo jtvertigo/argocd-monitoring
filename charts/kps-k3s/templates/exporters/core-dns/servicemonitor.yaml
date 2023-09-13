@@ -18,7 +18,7 @@ spec:
       # app: {{ template "kube-prometheus-stack.name" . }}-coredns
       # release: {{ $.Release.Name | quote }}
       k8s-app: kube-dns
-      kubernetes.io/name: coredns
+      kubernetes.io/name: CoreDNS
   namespaceSelector:
     # any: true
     matchNames:
