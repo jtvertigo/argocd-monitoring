@@ -1565,6 +1565,7 @@ kubeDns:
 ## Component scraping etcd
 ##
 kubeEtcd:
+  # enabled: true
   enabled: true
 
   ## If your etcd is not deployed as a pod, specify IPs it can be found on
@@ -1577,7 +1578,8 @@ kubeEtcd:
   ## Etcd service. If using kubeEtcd.endpoints only the port and targetPort are used
   ##
   service:
-    enabled: true
+    # enabled: true
+    enabled: false
     port: 2381
     # port: 2379
     targetPort: 2381
@@ -3325,15 +3327,13 @@ prometheus:
         scrape_timeout: 10s
         static_configs:
           - targets:
-            - 192.168.88.246:9100
-
-##            
-      # - job_name: "etcd-metrics"
-      #   scrape_interval: 15s
-      #   scrape_timeout: 10s
-      #   static_configs:
-      #     - targets:
-      #       - 192.168.88.246:2381
+            - 192.168.88.246:9100       
+      - job_name: "etcd-metrics"
+        scrape_interval: 15s
+        scrape_timeout: 10s
+        static_configs:
+          - targets:
+            - 192.168.88.246:2381
 
 ##
       # - job_name: "etcd"
