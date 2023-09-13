@@ -15,15 +15,18 @@ spec:
   {{- include "servicemonitor.scrapeLimits" .Values.coreDns.serviceMonitor | nindent 2 }}
   selector:
     matchLabels:
-      app: {{ template "kube-prometheus-stack.name" . }}-coredns
-      release: {{ $.Release.Name | quote }}
+      # app: {{ template "kube-prometheus-stack.name" . }}-coredns
+      # release: {{ $.Release.Name | quote }}
+      k8s-app: kube-dns
+      kubernetes.io/name: coredns
   namespaceSelector:
     # any: true
     matchNames:
       - "kube-system"
     #   - "monitoring"
   endpoints:
-  - port: http-metrics
+  # - port: http-metrics
+  - port: metrics
   # - port: http-metrics-core-dns
     {{- if .Values.coreDns.serviceMonitor.interval}}
     interval: {{ .Values.coreDns.serviceMonitor.interval }}
