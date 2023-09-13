@@ -1578,10 +1578,10 @@ kubeEtcd:
   ##
   service:
     enabled: true
-    # port: 2381
-    port: 2379
-    # targetPort: 2381
-    targetPort: 2379
+    port: 2381
+    # port: 2379
+    targetPort: 2381
+    # targetPort: 2379
     # selector:
     #   component: etcd
 
@@ -3326,12 +3326,14 @@ prometheus:
         static_configs:
           - targets:
             - 192.168.88.246:9100
-      - job_name: "etcd-metrics"
-        scrape_interval: 15s
-        scrape_timeout: 10s
-        static_configs:
-          - targets:
-            - 192.168.88.246:2381
+
+##            
+      # - job_name: "etcd-metrics"
+      #   scrape_interval: 15s
+      #   scrape_timeout: 10s
+      #   static_configs:
+      #     - targets:
+      #       - 192.168.88.246:2381
 
 ##
       # - job_name: "etcd"
