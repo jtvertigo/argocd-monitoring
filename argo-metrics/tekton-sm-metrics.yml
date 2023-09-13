@@ -1,0 +1,28 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: tekton-metrics
+  labels:
+    release: kps
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      # app.kubernetes.io/name: argocd-metrics
+      app: tekton-pipelines-controller
+  namespaceSelector:
+    # any: true
+    matchNames:
+    - tekton-pipelines
+    # - monitoring
+  endpoints:
+  - port: http-metrics
+    # relabelings:
+    #   - sourceLabels:
+    #       - __meta_kubernetes_namespace
+    #     regex: "argocd"
+    #     action: keep
+      # - sourceLabels:
+      #     - __meta_kubernetes_pod_label_datacenter
+      #   regex: west_europe
+      #   action: drop
