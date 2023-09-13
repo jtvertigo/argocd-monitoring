@@ -1625,14 +1625,14 @@ kubeEtcd:
     ## proxyUrl: URL of a proxy that should be used for scraping.
     ##
     proxyUrl: ""
-    # scheme: http
-    scheme: https
+    scheme: http
+    # scheme: https
     # insecureSkipVerify: false
-    insecureSkipVerify: true
+    insecureSkipVerify: false
     serverName: ""
-    caFile: "/etc/prometheus/secrets/etcd-certs/ca.pem"
-    certFile: "/etc/prometheus/secrets/etcd-certs/node-node1.pem"
-    keyFile: "/etc/prometheus/secrets/etcd-certs/node-node1-key.pem"
+    # caFile: "/etc/prometheus/secrets/etcd-certs/ca.pem"
+    # certFile: "/etc/prometheus/secrets/etcd-certs/node-node1.pem"
+    # keyFile: "/etc/prometheus/secrets/etcd-certs/node-node1-key.pem"
 
     ## MetricRelabelConfigs to apply to samples after scraping, but before ingestion.
     ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#relabelconfig
